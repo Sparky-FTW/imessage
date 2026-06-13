@@ -35,8 +35,8 @@ if(fs.existsSync(publicDir)){
 }
 
 app.listen(PORT,()=> {
+    connectDB()
     console.log("server running")
 
-    connectDB()
-
+    if(process.env.NODE_ENV === "production") job.start()
 })
